@@ -38,6 +38,14 @@ export const Route = createFileRoute("/auth")({
   component: AuthPage,
 });
 
+type AuthErrors = {
+  fullName?: string;
+  email?: string;
+  password?: string;
+  confirm?: string;
+  form?: string;
+};
+
 const passwordRules = z
   .string()
   .min(8, "Use at least 8 characters")
@@ -57,7 +65,7 @@ function AuthPage() {
   const [confirm, setConfirm] = useState("");
   const [remember, setRemember] = useState(true);
   const [show, setShow] = useState(false);
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<AuthErrors>({});
   const [pending, setPending] = useState(false);
   const [emailSent, setEmailSent] = useState<null | "confirm" | "reset">(null);
 
@@ -73,7 +81,7 @@ function AuthPage() {
 
   async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
-    const nextErrors: Record<string, string> = {};
+    const nextErrors: AuthErrors = {};
 
     const emailParsed = z.string().trim().email().max(255).safeParse(email);
     if (!emailParsed.success) nextErrors.email = "Enter a valid email address";
