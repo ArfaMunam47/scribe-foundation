@@ -90,7 +90,6 @@ Configure your Supabase credentials in `.env`:
 npm run dev
 ```
 
-5. Open [http://localhost:5173](http://localhost:5173) in your browser
 
 ## Available Scripts
 
