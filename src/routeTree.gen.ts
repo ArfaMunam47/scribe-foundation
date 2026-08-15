@@ -20,6 +20,9 @@ import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authentic
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as PostSlugRouteImport } from './routes/post.$slug'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
+import { Route as AuthenticatedAdminPostsRouteImport } from './routes/_authenticated/admin/posts'
+import { Route as AuthenticatedAdminPostsNewRouteImport } from './routes/_authenticated/admin/posts.new'
+import { Route as AuthenticatedAdminPostsIdEditRouteImport } from './routes/_authenticated/admin/posts.$id.edit'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -75,6 +78,23 @@ const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AuthenticatedAdminRouteRoute,
 } as any)
+const AuthenticatedAdminPostsRoute = AuthenticatedAdminPostsRouteImport.update({
+  id: '/posts',
+  path: '/posts',
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any)
+const AuthenticatedAdminPostsNewRoute =
+  AuthenticatedAdminPostsNewRouteImport.update({
+    id: '/new',
+    path: '/new',
+    getParentRoute: () => AuthenticatedAdminPostsRoute,
+  } as any)
+const AuthenticatedAdminPostsIdEditRoute =
+  AuthenticatedAdminPostsIdEditRouteImport.update({
+    id: '/$id/edit',
+    path: '/$id/edit',
+    getParentRoute: () => AuthenticatedAdminPostsRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -86,7 +106,10 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/post/$slug': typeof PostSlugRoute
+  '/admin/posts': typeof AuthenticatedAdminPostsRouteWithChildren
   '/admin/': typeof AuthenticatedAdminIndexRoute
+  '/admin/posts/new': typeof AuthenticatedAdminPostsNewRoute
+  '/admin/posts/$id/edit': typeof AuthenticatedAdminPostsIdEditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -97,7 +120,10 @@ export interface FileRoutesByTo {
   '/reset-password': typeof ResetPasswordRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/post/$slug': typeof PostSlugRoute
+  '/admin/posts': typeof AuthenticatedAdminPostsRouteWithChildren
   '/admin': typeof AuthenticatedAdminIndexRoute
+  '/admin/posts/new': typeof AuthenticatedAdminPostsNewRoute
+  '/admin/posts/$id/edit': typeof AuthenticatedAdminPostsIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -111,7 +137,10 @@ export interface FileRoutesById {
   '/_authenticated/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/post/$slug': typeof PostSlugRoute
+  '/_authenticated/admin/posts': typeof AuthenticatedAdminPostsRouteWithChildren
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
+  '/_authenticated/admin/posts/new': typeof AuthenticatedAdminPostsNewRoute
+  '/_authenticated/admin/posts/$id/edit': typeof AuthenticatedAdminPostsIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -125,7 +154,10 @@ export interface FileRouteTypes {
     | '/admin'
     | '/dashboard'
     | '/post/$slug'
+    | '/admin/posts'
     | '/admin/'
+    | '/admin/posts/new'
+    | '/admin/posts/$id/edit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -136,7 +168,10 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/dashboard'
     | '/post/$slug'
+    | '/admin/posts'
     | '/admin'
+    | '/admin/posts/new'
+    | '/admin/posts/$id/edit'
   id:
     | '__root__'
     | '/'
@@ -149,7 +184,10 @@ export interface FileRouteTypes {
     | '/_authenticated/admin'
     | '/_authenticated/dashboard'
     | '/post/$slug'
+    | '/_authenticated/admin/posts'
     | '/_authenticated/admin/'
+    | '/_authenticated/admin/posts/new'
+    | '/_authenticated/admin/posts/$id/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -242,15 +280,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
+    '/_authenticated/admin/posts': {
+      id: '/_authenticated/admin/posts'
+      path: '/posts'
+      fullPath: '/admin/posts'
+      preLoaderRoute: typeof AuthenticatedAdminPostsRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/posts/new': {
+      id: '/_authenticated/admin/posts/new'
+      path: '/new'
+      fullPath: '/admin/posts/new'
+      preLoaderRoute: typeof AuthenticatedAdminPostsNewRouteImport
+      parentRoute: typeof AuthenticatedAdminPostsRoute
+    }
+    '/_authenticated/admin/posts/$id/edit': {
+      id: '/_authenticated/admin/posts/$id/edit'
+      path: '/$id/edit'
+      fullPath: '/admin/posts/$id/edit'
+      preLoaderRoute: typeof AuthenticatedAdminPostsIdEditRouteImport
+      parentRoute: typeof AuthenticatedAdminPostsRoute
+    }
   }
 }
 
+interface AuthenticatedAdminPostsRouteChildren {
+  AuthenticatedAdminPostsNewRoute: typeof AuthenticatedAdminPostsNewRoute
+  AuthenticatedAdminPostsIdEditRoute: typeof AuthenticatedAdminPostsIdEditRoute
+}
+
+const AuthenticatedAdminPostsRouteChildren: AuthenticatedAdminPostsRouteChildren =
+  {
+    AuthenticatedAdminPostsNewRoute: AuthenticatedAdminPostsNewRoute,
+    AuthenticatedAdminPostsIdEditRoute: AuthenticatedAdminPostsIdEditRoute,
+  }
+
+const AuthenticatedAdminPostsRouteWithChildren =
+  AuthenticatedAdminPostsRoute._addFileChildren(
+    AuthenticatedAdminPostsRouteChildren,
+  )
+
 interface AuthenticatedAdminRouteRouteChildren {
+  AuthenticatedAdminPostsRoute: typeof AuthenticatedAdminPostsRouteWithChildren
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
 }
 
 const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren =
   {
+    AuthenticatedAdminPostsRoute: AuthenticatedAdminPostsRouteWithChildren,
     AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
   }
 
