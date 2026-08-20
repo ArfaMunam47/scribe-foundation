@@ -166,14 +166,14 @@ export function PostEditor({ existing }: { existing?: Post }) {
                   if (!existing) setSlug(slugify(event.target.value));
                 }}
               />
-              {errors.title && <p className="text-xs text-destructive">{errors.title}</p>}
+              {errors['title'] && <p className="text-xs text-destructive">{errors['title']}</p>}
             </div>
 
             <div className="grid gap-2">
               <Label htmlFor="slug">URL slug</Label>
               <Input id="slug" value={slug} onChange={(event) => setSlug(event.target.value)} />
               <p className="text-xs text-muted-foreground">/post/{slug || "your-article"}</p>
-              {errors.slug && <p className="text-xs text-destructive">{errors.slug}</p>}
+              {errors['slug'] && <p className="text-xs text-destructive">{errors['slug']}</p>}
             </div>
 
             <div className="grid gap-2">
@@ -200,7 +200,7 @@ export function PostEditor({ existing }: { existing?: Post }) {
                 Supports ## headings, &gt; quotes, - lists, **bold** and [links](url). Estimated{" "}
                 {estimateReadingTime(content)} min read.
               </p>
-              {errors.content && <p className="text-xs text-destructive">{errors.content}</p>}
+              {errors['content'] && <p className="text-xs text-destructive">{errors['content']}</p>}
             </div>
           </>
         ) : (
