@@ -15,28 +15,29 @@ import { Button } from "@/components/ui/button";
 import { authorsQuery, categoriesQuery, publishedPostsQuery, type Post } from "@/lib/api";
 import { formatCount, formatDate, initials } from "@/lib/format";
 
+const HOME_TITLE = "Scrib Foundation — writing on community, education & social impact";
+const HOME_DESCRIPTION =
+  "Practical, independent writing on community programmes, education access, public awareness work and how such work is funded, run and sustained.";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Scrib Foundation — Considered writing on technology, design & business" },
-      {
-        name: "description",
-        content:
-          "Independent long-form reporting and essays on technology, artificial intelligence, design, and the craft of building companies.",
-      },
-      {
-        property: "og:title",
-        content: "Scrib Foundation — Considered writing on technology, design & business",
-      },
-      {
-        property: "og:description",
-        content:
-          "Independent long-form reporting and essays on technology, artificial intelligence, design, and the craft of building companies.",
-      },
-      { property: "og:url", content: "/" },
+      { title: HOME_TITLE },
+      { name: "description", content: HOME_DESCRIPTION },
+      { property: "og:title", content: HOME_TITLE },
+      { property: "og:description", content: HOME_DESCRIPTION },
+      { property: "og:url", content: "https://scribe-foundation.lovable.app/" },
       { property: "og:type", content: "website" },
+      {
+        property: "og:image",
+        content: "https://scribe-foundation.lovable.app/images/scrib-hero.jpg",
+      },
+      {
+        name: "twitter:image",
+        content: "https://scribe-foundation.lovable.app/images/scrib-hero.jpg",
+      },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://scribe-foundation.lovable.app/" }],
   }),
   component: HomePage,
 });
