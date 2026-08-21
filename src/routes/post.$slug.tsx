@@ -33,14 +33,14 @@ export const Route = createFileRoute("/post/$slug")({
   head: ({ params, loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Article unavailable — Ivory Review" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Article unavailable — Scrib Foundation" }, { name: "robots", content: "noindex" }],
       };
     }
     const { post } = loaderData;
-    const description = post.excerpt ?? `${post.title} — reporting from Ivory Review.`;
+    const description = post.excerpt ?? `${post.title} — reporting from Scrib Foundation.`;
     return {
       meta: [
-        { title: `${post.title} — Ivory Review` },
+        { title: `${post.title} — Scrib Foundation` },
         { name: "description", content: description },
         { property: "og:title", content: post.title },
         { property: "og:description", content: description },
@@ -57,8 +57,8 @@ export const Route = createFileRoute("/post/$slug")({
             headline: post.title,
             description,
             datePublished: post.published_at,
-            author: { "@type": "Person", name: post.author?.name ?? "Ivory Review" },
-            publisher: { "@type": "Organization", name: "Ivory Review" },
+            author: { "@type": "Person", name: post.author?.name ?? "Scrib Foundation" },
+            publisher: { "@type": "Organization", name: "Scrib Foundation" },
           }),
         },
       ],
@@ -156,7 +156,7 @@ function PostPage() {
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-muted-foreground">
               <span className="font-medium text-foreground">
-                {post.author?.name ?? "Ivory desk"}
+                {post.author?.name ?? "Scrib Foundation"}
               </span>
               <span aria-hidden="true">·</span>
               <time dateTime={post.published_at ?? undefined}>{formatDate(post.published_at)}</time>

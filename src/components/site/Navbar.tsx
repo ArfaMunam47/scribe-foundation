@@ -18,8 +18,9 @@ import { initials } from "@/lib/format";
 
 const NAV_LINKS = [
   { to: "/", label: "Home" },
-  { to: "/explore", label: "Explore" },
+  { to: "/explore", label: "Articles" },
   { to: "/about", label: "About" },
+  { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
 ] as const;
 

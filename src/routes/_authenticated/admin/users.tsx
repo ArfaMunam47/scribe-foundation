@@ -7,9 +7,9 @@ import { formatShortDate } from "@/lib/format";
 export const Route = createFileRoute("/_authenticated/admin/users")({
   head: () => ({
     meta: [
-      { title: "Readers — Ivory Review admin" },
+      { title: "Readers — Scrib Foundation admin" },
       { name: "description", content: "Registered readers and their editorial permissions." },
-      { property: "og:title", content: "Readers — Ivory Review admin" },
+      { property: "og:title", content: "Readers — Scrib Foundation admin" },
       { property: "og:description", content: "Registered readers and permissions." },
       { name: "robots", content: "noindex" },
     ],
@@ -25,7 +25,7 @@ function AdminUsers() {
       <p className="eyebrow">Community</p>
       <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight">Readers</h1>
       <p className="mt-3 max-w-xl text-sm text-muted-foreground">
-        Everyone with an Ivory Review account, newest first.
+        Everyone with an Scrib Foundation account, newest first.
       </p>
 
       {isLoading ? (

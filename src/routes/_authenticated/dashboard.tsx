@@ -19,9 +19,9 @@ import { formatDate, initials } from "@/lib/format";
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
-      { title: "Your dashboard — Ivory Review" },
-      { name: "description", content: "Your Ivory Review library, profile and account settings." },
-      { property: "og:title", content: "Your dashboard — Ivory Review" },
+      { title: "Your dashboard — Scrib Foundation" },
+      { name: "description", content: "Your Scrib Foundation library, profile and account settings." },
+      { property: "og:title", content: "Your dashboard — Scrib Foundation" },
       { property: "og:description", content: "Your library, profile and account settings." },
       { name: "robots", content: "noindex" },
     ],

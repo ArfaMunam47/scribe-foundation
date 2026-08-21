@@ -11,13 +11,13 @@ import { initials } from "@/lib/format";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Ivory Review — our mission and editorial philosophy" },
+      { title: "About Scrib Foundation — our mission and editorial philosophy" },
       {
         name: "description",
         content:
-          "Why Ivory Review exists: an independent, reader-funded publication built on slow reporting, plain language and editorial independence.",
+          "Why Scrib Foundation exists: an independent, reader-funded publication built on slow reporting, plain language and editorial independence.",
       },
-      { property: "og:title", content: "About Ivory Review" },
+      { property: "og:title", content: "About Scrib Foundation" },
       {
         property: "og:description",
         content: "An independent, reader-funded publication built on slow reporting and editorial independence.",
@@ -62,13 +62,13 @@ function AboutPage() {
               An independent review for people who take their work seriously.
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Ivory Review was founded in 2016 by three journalists who wanted to write about
+              Scrib Foundation was founded in 2016 by three journalists who wanted to write about
               technology without the pressure to publish first. A decade later, the standard has not
               changed.
             </p>
           </div>
           <div className="zoom-frame aspect-4/3 overflow-hidden border border-border bg-secondary shadow-lift">
-            <CoverImage src="/images/cover-business.jpg" alt="The Ivory Review newsroom" eager />
+            <CoverImage src="/images/cover-business.jpg" alt="The Scrib Foundation newsroom" eager />
           </div>
         </div>
       </Container>

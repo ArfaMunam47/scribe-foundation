@@ -15,10 +15,10 @@ type Faq = { question: string; answer: string };
 const GROUPS: { title: string; eyebrow: string; items: Faq[] }[] = [
   {
     eyebrow: "The publication",
-    title: "About Ivory Review",
+    title: "About Scrib Foundation",
     items: [
       {
-        question: "What does Ivory Review actually cover?",
+        question: "What does Scrib Foundation actually cover?",
         answer:
           "We publish considered, long-form reporting and essays on technology, design, and the business of building durable things. Every piece is commissioned around a specific argument rather than a news cycle, which is why we publish weekly instead of hourly.",
       },
@@ -93,13 +93,13 @@ const ALL = GROUPS.flatMap((group) => group.items);
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "Frequently Asked Questions | Ivory Review" },
+      { title: "Frequently Asked Questions | Scrib Foundation" },
       {
         name: "description",
         content:
-          "Answers about Ivory Review subscriptions, accounts, bookmarks, editorial standards, pitching, corrections and republication.",
+          "Answers about Scrib Foundation subscriptions, accounts, bookmarks, editorial standards, pitching, corrections and republication.",
       },
-      { property: "og:title", content: "Frequently Asked Questions | Ivory Review" },
+      { property: "og:title", content: "Frequently Asked Questions | Scrib Foundation" },
       {
         property: "og:description",
         content:
