@@ -18,7 +18,7 @@ import { formatCount, formatDate, initials } from "@/lib/format";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ivory Review — Considered writing on technology, design & business" },
+      { title: "Scrib Foundation — Considered writing on technology, design & business" },
       {
         name: "description",
         content:
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "Ivory Review — Considered writing on technology, design & business",
+        content: "Scrib Foundation — Considered writing on technology, design & business",
       },
       {
         property: "og:description",
@@ -62,7 +62,7 @@ function HomePage() {
               Considered writing for people who build things carefully.
             </h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Ivory Review publishes long-form reporting on technology, machine intelligence, design
+              Scrib Foundation publishes long-form reporting on technology, machine intelligence, design
               and the business of company building — researched slowly and edited properly.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -94,7 +94,7 @@ function HomePage() {
 
           <div className="relative">
             <div className="zoom-frame relative aspect-4/5 w-full overflow-hidden border border-border bg-secondary shadow-lift sm:aspect-3/2 lg:aspect-4/5">
-              <CoverImage src="/images/hero-editorial.jpg" alt="The Ivory Review desk" eager />
+              <CoverImage src="/images/hero-editorial.jpg" alt="The Scrib Foundation desk" eager />
             </div>
             <div className="absolute -bottom-6 -left-4 hidden max-w-[220px] border border-border bg-card p-5 shadow-paper sm:block lg:-left-10">
               <p className="eyebrow">This week</p>
@@ -319,7 +319,7 @@ function FeaturedArticle({ post }: { post: Post }) {
           </p>
         )}
         <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-muted-foreground">
-          <span className="font-medium text-foreground">{post.author?.name ?? "Ivory desk"}</span>
+          <span className="font-medium text-foreground">{post.author?.name ?? "Scrib Foundation"}</span>
           <span aria-hidden="true">·</span>
           <time dateTime={post.published_at ?? undefined}>{formatDate(post.published_at)}</time>
           <span aria-hidden="true">·</span>

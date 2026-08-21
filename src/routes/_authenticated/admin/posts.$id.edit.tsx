@@ -9,9 +9,9 @@ import { allPostsQuery } from "@/lib/api";
 export const Route = createFileRoute("/_authenticated/admin/posts/$id/edit")({
   head: () => ({
     meta: [
-      { title: "Edit article — Ivory Review admin" },
+      { title: "Edit article — Scrib Foundation admin" },
       { name: "description", content: "Edit an existing article." },
-      { property: "og:title", content: "Edit article — Ivory Review admin" },
+      { property: "og:title", content: "Edit article — Scrib Foundation admin" },
       { property: "og:description", content: "Edit an existing article." },
       { name: "robots", content: "noindex" },
     ],

@@ -9,9 +9,9 @@ import { formatShortDate } from "@/lib/format";
 export const Route = createFileRoute("/_authenticated/admin/")({
   head: () => ({
     meta: [
-      { title: "Admin overview — Ivory Review" },
+      { title: "Admin overview — Scrib Foundation" },
       { name: "description", content: "Editorial statistics and recent activity." },
-      { property: "og:title", content: "Admin overview — Ivory Review" },
+      { property: "og:title", content: "Admin overview — Scrib Foundation" },
       { property: "og:description", content: "Editorial statistics and recent activity." },
       { name: "robots", content: "noindex" },
     ],

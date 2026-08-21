@@ -15,13 +15,13 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact the Ivory Review desk" },
+      { title: "Contact the Scrib Foundation desk" },
       {
         name: "description",
         content:
-          "Reach the Ivory Review editorial desk with a story tip, a correction, a pitch or a partnership enquiry.",
+          "Reach the Scrib Foundation editorial desk with a story tip, a correction, a pitch or a partnership enquiry.",
       },
-      { property: "og:title", content: "Contact the Ivory Review desk" },
+      { property: "og:title", content: "Contact the Scrib Foundation desk" },
       {
         property: "og:description",
         content: "Story tips, corrections, pitches and partnership enquiries.",
@@ -107,7 +107,7 @@ function ContactPage() {
 
             <dl className="mt-12 grid gap-8">
               {[
-                { icon: Mail, label: "Editorial desk", value: "desk@ivoryreview.com" },
+                { icon: Mail, label: "Editorial desk", value: "desk@scribfoundation.org" },
                 { icon: Phone, label: "Telephone", value: "+44 20 7946 0912" },
                 { icon: MapPin, label: "Studio", value: "12 Wardour Mews, London W1F 8AN" },
               ].map((item) => (

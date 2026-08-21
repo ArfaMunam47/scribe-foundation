@@ -18,16 +18,16 @@ export const Route = createFileRoute("/auth")({
   }),
   head: () => ({
     meta: [
-      { title: "Sign in or subscribe — Ivory Review" },
+      { title: "Sign in or subscribe — Scrib Foundation" },
       {
         name: "description",
         content:
-          "Sign in to your Ivory Review account, or create one to save articles and manage your reading.",
+          "Sign in to your Scrib Foundation account, or create one to save articles and manage your reading.",
       },
-      { property: "og:title", content: "Sign in or subscribe — Ivory Review" },
+      { property: "og:title", content: "Sign in or subscribe — Scrib Foundation" },
       {
         property: "og:description",
-        content: "Access your Ivory Review reader account.",
+        content: "Access your Scrib Foundation reader account.",
       },
       { property: "og:url", content: "/auth" },
       { property: "og:type", content: "website" },
@@ -115,7 +115,7 @@ function AuthPage() {
         });
         if (error) throw error;
         if (data.session) {
-          toast.success("Welcome to Ivory Review");
+          toast.success("Welcome to Scrib Foundation");
           void navigate({ to: "/dashboard", replace: true });
         } else {
           setEmailSent("confirm");
@@ -156,7 +156,7 @@ function AuthPage() {
             Save the pieces you'll want to reread.
           </h2>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-ink-foreground/70">
-            An Ivory Review account keeps your library, your reading history and the Thursday
+            An Scrib Foundation account keeps your library, your reading history and the Thursday
             Dispatch in one place.
           </p>
         </div>
@@ -310,7 +310,7 @@ function AuthPage() {
               </Button>
 
               <p className="text-sm text-muted-foreground">
-                {view === "signup" ? "Already have an account? " : "New to Ivory Review? "}
+                {view === "signup" ? "Already have an account? " : "New to Scrib Foundation? "}
                 <button
                   type="button"
                   onClick={() => setView(view === "signup" ? "login" : "signup")}

@@ -6,9 +6,9 @@ import { allPostsQuery, categoriesQuery } from "@/lib/api";
 export const Route = createFileRoute("/_authenticated/admin/categories")({
   head: () => ({
     meta: [
-      { title: "Categories — Ivory Review admin" },
+      { title: "Categories — Scrib Foundation admin" },
       { name: "description", content: "Editorial sections and how many stories sit in each." },
-      { property: "og:title", content: "Categories — Ivory Review admin" },
+      { property: "og:title", content: "Categories — Scrib Foundation admin" },
       { property: "og:description", content: "Editorial sections and story counts." },
       { name: "robots", content: "noindex" },
     ],

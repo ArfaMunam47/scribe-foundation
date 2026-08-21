@@ -26,9 +26,9 @@ import { StatusPill } from "./index";
 export const Route = createFileRoute("/_authenticated/admin/posts")({
   head: () => ({
     meta: [
-      { title: "Manage articles — Ivory Review admin" },
+      { title: "Manage articles — Scrib Foundation admin" },
       { name: "description", content: "Create, edit, publish and delete articles." },
-      { property: "og:title", content: "Manage articles — Ivory Review admin" },
+      { property: "og:title", content: "Manage articles — Scrib Foundation admin" },
       { property: "og:description", content: "Create, edit, publish and delete articles." },
       { name: "robots", content: "noindex" },
     ],

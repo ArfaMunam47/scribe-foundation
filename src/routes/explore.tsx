@@ -31,16 +31,16 @@ export const Route = createFileRoute("/explore")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Explore every article — Ivory Review" },
+      { title: "Explore every article — Scrib Foundation" },
       {
         name: "description",
         content:
-          "Search and filter the complete Ivory Review archive: essays, interviews and reporting across technology, AI, design, business and startups.",
+          "Search and filter the complete Scrib Foundation archive: essays, interviews and reporting across technology, AI, design, business and startups.",
       },
-      { property: "og:title", content: "Explore every article — Ivory Review" },
+      { property: "og:title", content: "Explore every article — Scrib Foundation" },
       {
         property: "og:description",
-        content: "Search and filter the complete Ivory Review archive by section, date and interest.",
+        content: "Search and filter the complete Scrib Foundation archive by section, date and interest.",
       },
       { property: "og:url", content: "/explore" },
       { property: "og:type", content: "website" },

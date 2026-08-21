@@ -28,7 +28,7 @@ export function Footer() {
           <div className="max-w-sm">
             <Logo />
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-              Ivory Review is an independent publication on technology, design and the business of
+              Scrib Foundation is an independent publication on technology, design and the business of
               building things worth keeping. Considered reporting, published slowly.
             </p>
           </div>
@@ -61,16 +61,16 @@ export function Footer() {
               United Kingdom
             </p>
             <a
-              href="mailto:desk@ivoryreview.com"
+              href="mailto:desk@scribfoundation.org"
               className="mt-4 inline-block text-sm underline decoration-brass underline-offset-4 transition-colors hover:text-foreground"
             >
-              desk@ivoryreview.com
+              desk@scribfoundation.org
             </a>
           </div>
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Ivory Review. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Scrib Foundation. All rights reserved.</p>
           <p className="tracking-[0.16em] uppercase">Published in London</p>
         </div>
       </div>

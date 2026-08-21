@@ -84,14 +84,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ivory Review — Considered writing on technology & design" },
+      { title: "Scrib Foundation — Considered writing on technology & design" },
       {
         name: "description",
         content:
           "An independent publication on technology, artificial intelligence, design and the business of building things worth keeping.",
       },
-      { name: "author", content: "Ivory Review" },
-      { property: "og:site_name", content: "Ivory Review" },
+      { name: "author", content: "Scrib Foundation" },
+      { property: "og:site_name", content: "Scrib Foundation" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#faf8f4" },
@@ -113,7 +113,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "NewsMediaOrganization",
-          name: "Ivory Review",
+          name: "Scrib Foundation",
           description:
             "An independent publication on technology, artificial intelligence, design and business.",
         }),

@@ -5,9 +5,9 @@ import { PostEditor } from "@/components/admin/PostEditor";
 export const Route = createFileRoute("/_authenticated/admin/posts/new")({
   head: () => ({
     meta: [
-      { title: "New article — Ivory Review admin" },
+      { title: "New article — Scrib Foundation admin" },
       { name: "description", content: "Write and publish a new article." },
-      { property: "og:title", content: "New article — Ivory Review admin" },
+      { property: "og:title", content: "New article — Scrib Foundation admin" },
       { property: "og:description", content: "Write and publish a new article." },
       { name: "robots", content: "noindex" },
     ],
