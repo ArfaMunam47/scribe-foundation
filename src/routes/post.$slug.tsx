@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 import { ArticleCard } from "@/components/site/ArticleCard";
+import { ArticleContents, ArticleContentsRail } from "@/components/site/ArticleContents";
 import { CoverImage } from "@/components/site/CoverImage";
 import { Markdown } from "@/components/site/Markdown";
 import { Container, SiteShell } from "@/components/site/SiteShell";
@@ -179,12 +180,14 @@ function PostPage() {
         </Container>
 
         <Container className="py-14 lg:py-20">
-          <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[auto_minmax(0,42rem)] lg:gap-16">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[auto_minmax(0,42rem)_auto] lg:gap-14">
             <ShareRail post={post} />
             <div>
+              <ArticleContents content={post.content} />
               <Markdown content={post.content} />
               <AuthorCard post={post} />
             </div>
+            <ArticleContentsRail content={post.content} />
           </div>
         </Container>
       </article>

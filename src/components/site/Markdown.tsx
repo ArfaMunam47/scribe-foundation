@@ -1,5 +1,7 @@
 import { Fragment, type ReactNode } from "react";
 
+import { slugifyHeading } from "@/components/site/ArticleContents";
+
 /** Renders inline **bold**, *italic*, `code` and [links](url). */
 function inline(text: string, keyPrefix: string): ReactNode[] {
   const tokens = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`|\[[^\]]+\]\([^)]+\))/g);
@@ -127,7 +129,11 @@ export function Markdown({ content, className }: { content: string; className?: 
         const key = `block-${index}`;
         switch (block.type) {
           case "h2":
-            return <h2 key={key}>{inline(block.text, key)}</h2>;
+            return (
+              <h2 key={key} id={slugifyHeading(block.text)} className="scroll-mt-28">
+                {inline(block.text, key)}
+              </h2>
+            );
           case "h3":
             return <h3 key={key}>{inline(block.text, key)}</h3>;
           case "quote":
