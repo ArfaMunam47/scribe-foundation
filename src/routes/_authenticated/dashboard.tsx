@@ -20,7 +20,10 @@ export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
       { title: "Your dashboard — Scrib Foundation" },
-      { name: "description", content: "Your Scrib Foundation library, profile and account settings." },
+      {
+        name: "description",
+        content: "Your Scrib Foundation library, profile and account settings.",
+      },
       { property: "og:title", content: "Your dashboard — Scrib Foundation" },
       { property: "og:description", content: "Your library, profile and account settings." },
       { name: "robots", content: "noindex" },

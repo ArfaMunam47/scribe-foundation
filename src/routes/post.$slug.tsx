@@ -35,7 +35,10 @@ export const Route = createFileRoute("/post/$slug")({
   head: ({ params, loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Article unavailable — Scrib Foundation" }, { name: "robots", content: "noindex" }],
+        meta: [
+          { title: "Article unavailable — Scrib Foundation" },
+          { name: "robots", content: "noindex" },
+        ],
       };
     }
     const { post } = loaderData;
@@ -71,7 +74,9 @@ export const Route = createFileRoute("/post/$slug")({
     <SiteShell>
       <Container className="py-24 text-center">
         <h1 className="font-display text-3xl font-semibold">This article didn't load</h1>
-        <p className="mt-3 text-sm text-muted-foreground">Please refresh, or return to the archive.</p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          Please refresh, or return to the archive.
+        </p>
         <Button asChild className="mt-8">
           <Link to="/explore">Back to the archive</Link>
         </Button>

@@ -20,7 +20,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Scrib Foundation" },
       {
         property: "og:description",
-        content: "An independent, reader-funded publication built on slow reporting and editorial independence.",
+        content:
+          "An independent, reader-funded publication built on slow reporting and editorial independence.",
       },
       { property: "og:url", content: "/about" },
       { property: "og:type", content: "website" },
@@ -68,7 +69,11 @@ function AboutPage() {
             </p>
           </div>
           <div className="zoom-frame aspect-4/3 overflow-hidden border border-border bg-secondary shadow-lift">
-            <CoverImage src="/images/cover-business.jpg" alt="The Scrib Foundation newsroom" eager />
+            <CoverImage
+              src="/images/cover-business.jpg"
+              alt="The Scrib Foundation newsroom"
+              eager
+            />
           </div>
         </div>
       </Container>

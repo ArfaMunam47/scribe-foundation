@@ -39,7 +39,9 @@ export function ArticleCard({ post, priority = false }: { post: Post; priority?:
         )}
 
         <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1.5 pt-4 text-xs text-muted-foreground hairline">
-          <span className="font-medium text-foreground">{post.author?.name ?? "Scrib Foundation"}</span>
+          <span className="font-medium text-foreground">
+            {post.author?.name ?? "Scrib Foundation"}
+          </span>
           <span aria-hidden="true">·</span>
           <time dateTime={post.published_at ?? undefined}>{formatDate(post.published_at)}</time>
           <span aria-hidden="true">·</span>

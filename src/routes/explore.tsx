@@ -42,7 +42,8 @@ export const Route = createFileRoute("/explore")({
       { property: "og:title", content: "Explore every article — Scrib Foundation" },
       {
         property: "og:description",
-        content: "Search and filter the complete Scrib Foundation archive by section, date and interest.",
+        content:
+          "Search and filter the complete Scrib Foundation archive by section, date and interest.",
       },
       { property: "og:url", content: "/explore" },
       { property: "og:type", content: "website" },

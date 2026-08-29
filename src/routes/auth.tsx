@@ -214,9 +214,7 @@ function AuthPage() {
                     onChange={(event) => setFullName(event.target.value)}
                     aria-invalid={Boolean(errors.fullName)}
                   />
-                  {errors.fullName && (
-                    <p className="text-xs text-destructive">{errors.fullName}</p>
-                  )}
+                  {errors.fullName && <p className="text-xs text-destructive">{errors.fullName}</p>}
                 </div>
               )}
 
@@ -269,7 +267,8 @@ function AuthPage() {
                   {errors.password && <p className="text-xs text-destructive">{errors.password}</p>}
                   {view === "signup" && !errors.password && (
                     <p className="text-xs text-muted-foreground">
-                      Minimum 8 characters with an uppercase letter, a lowercase letter and a number.
+                      Minimum 8 characters with an uppercase letter, a lowercase letter and a
+                      number.
                     </p>
                   )}
                 </div>
