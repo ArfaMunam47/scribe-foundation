@@ -318,7 +318,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      increment_post_view: { Args: { post_slug: string }; Returns: undefined }
+      [_ in never]: never
     }
     Enums: {
       app_role: "admin" | "user"
