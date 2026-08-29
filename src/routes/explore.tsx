@@ -6,7 +6,6 @@ import { z } from "zod";
 
 import { ArticleCard, ArticleCardSkeleton } from "@/components/site/ArticleCard";
 import { CoverImage } from "@/components/site/CoverImage";
-import { fetchListings } from "@/lib/listings.functions";
 import { Container, EmptyState, SiteShell } from "@/components/site/SiteShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,6 +18,7 @@ import {
 } from "@/components/ui/select";
 import { categoriesQuery, publishedPostsQuery } from "@/lib/api";
 import { formatDate } from "@/lib/format";
+import { fetchListings } from "@/lib/listings.functions";
 
 const PAGE_SIZE = 6;
 
