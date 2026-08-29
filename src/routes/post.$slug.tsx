@@ -24,6 +24,7 @@ import type { Post } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { formatCount, formatDate, initials } from "@/lib/format";
 import { fetchPublishedPost } from "@/lib/posts.functions";
+import { recordPostView } from "@/lib/views.functions";
 
 export const Route = createFileRoute("/post/$slug")({
   loader: async ({ params }) => {
@@ -108,12 +109,8 @@ function PostPage() {
   }, []);
 
   useEffect(() => {
-    void supabase
-      .from("posts")
-      .update({ view_count: post.view_count + 1 })
-      .eq("id", post.id)
-      .then(() => undefined);
-  }, [post.id, post.view_count]);
+    void recordPostView({ data: { slug: post.slug } }).catch(() => undefined);
+  }, [post.slug]);
 
   return (
     <SiteShell>
