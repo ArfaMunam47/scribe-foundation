@@ -61,8 +61,7 @@ function ContactPage() {
       setForm(EMPTY);
       toast.success("Message sent", { description: "The desk replies within two working days." });
     },
-    onError: (error: Error) =>
-      toast.error("Message not sent", { description: error.message }),
+    onError: (error: Error) => toast.error("Message not sent", { description: error.message }),
   });
 
   function onSubmit(event: React.FormEvent) {

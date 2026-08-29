@@ -51,7 +51,7 @@ const GROUPS: { title: string; eyebrow: string; items: Faq[] }[] = [
       {
         question: "How do I reset my password?",
         answer:
-          "Choose \"Forgot password\" on the login screen and we will email you a secure, single-use reset link. The link expires after one hour; requesting a new one invalidates the previous link immediately.",
+          'Choose "Forgot password" on the login screen and we will email you a secure, single-use reset link. The link expires after one hour; requesting a new one invalidates the previous link immediately.',
       },
       {
         question: "Can I unsubscribe from the newsletter?",

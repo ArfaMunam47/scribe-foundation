@@ -122,7 +122,9 @@ export function StatusPill({ status }: { status: string }) {
   return (
     <span
       className={`shrink-0 border px-2 py-1 text-[10px] tracking-[0.14em] uppercase ${
-        published ? "border-brass/50 bg-brass/10 text-brass" : "border-border bg-secondary text-muted-foreground"
+        published
+          ? "border-brass/50 bg-brass/10 text-brass"
+          : "border-border bg-secondary text-muted-foreground"
       }`}
     >
       {status}

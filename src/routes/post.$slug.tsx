@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 import { ArticleCard } from "@/components/site/ArticleCard";
+import { ArticleContents, ArticleContentsRail } from "@/components/site/ArticleContents";
 import { CoverImage } from "@/components/site/CoverImage";
 import { Markdown } from "@/components/site/Markdown";
 import { Container, SiteShell } from "@/components/site/SiteShell";
@@ -23,6 +24,7 @@ import type { Post } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
 import { formatCount, formatDate, initials } from "@/lib/format";
 import { fetchPublishedPost } from "@/lib/posts.functions";
+import { recordPostView } from "@/lib/views.functions";
 
 export const Route = createFileRoute("/post/$slug")({
   loader: async ({ params }) => {
@@ -33,7 +35,10 @@ export const Route = createFileRoute("/post/$slug")({
   head: ({ params, loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Article unavailable — Scrib Foundation" }, { name: "robots", content: "noindex" }],
+        meta: [
+          { title: "Article unavailable — Scrib Foundation" },
+          { name: "robots", content: "noindex" },
+        ],
       };
     }
     const { post } = loaderData;
@@ -69,7 +74,9 @@ export const Route = createFileRoute("/post/$slug")({
     <SiteShell>
       <Container className="py-24 text-center">
         <h1 className="font-display text-3xl font-semibold">This article didn't load</h1>
-        <p className="mt-3 text-sm text-muted-foreground">Please refresh, or return to the archive.</p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          Please refresh, or return to the archive.
+        </p>
         <Button asChild className="mt-8">
           <Link to="/explore">Back to the archive</Link>
         </Button>
@@ -107,12 +114,8 @@ function PostPage() {
   }, []);
 
   useEffect(() => {
-    void supabase
-      .from("posts")
-      .update({ view_count: post.view_count + 1 })
-      .eq("id", post.id)
-      .then(() => undefined);
-  }, [post.id, post.view_count]);
+    void recordPostView({ data: { slug: post.slug } }).catch(() => undefined);
+  }, [post.slug]);
 
   return (
     <SiteShell>
@@ -179,12 +182,14 @@ function PostPage() {
         </Container>
 
         <Container className="py-14 lg:py-20">
-          <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[auto_minmax(0,42rem)] lg:gap-16">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[auto_minmax(0,42rem)_auto] lg:gap-14">
             <ShareRail post={post} />
             <div>
+              <ArticleContents content={post.content} />
               <Markdown content={post.content} />
               <AuthorCard post={post} />
             </div>
+            <ArticleContentsRail content={post.content} />
           </div>
         </Container>
       </article>
@@ -255,7 +260,8 @@ function ShareRail({ post }: { post: Post }) {
     );
   }
 
-  const shareUrl = typeof window === "undefined" ? "" : window.location.href;
+  const [shareUrl, setShareUrl] = useState("");
+  useEffect(() => setShareUrl(window.location.href), []);
 
   return (
     <div className="flex gap-2 lg:sticky lg:top-28 lg:h-fit lg:flex-col">

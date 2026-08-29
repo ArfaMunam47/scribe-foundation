@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/select";
 import { categoriesQuery, publishedPostsQuery } from "@/lib/api";
 import { formatDate } from "@/lib/format";
+import { fetchListings } from "@/lib/listings.functions";
 
 const PAGE_SIZE = 6;
 
@@ -29,6 +30,7 @@ const searchSchema = z.object({
 
 export const Route = createFileRoute("/explore")({
   validateSearch: searchSchema,
+  loader: () => fetchListings(),
   head: () => ({
     meta: [
       { title: "Explore every article — Scrib Foundation" },
@@ -40,7 +42,8 @@ export const Route = createFileRoute("/explore")({
       { property: "og:title", content: "Explore every article — Scrib Foundation" },
       {
         property: "og:description",
-        content: "Search and filter the complete Scrib Foundation archive by section, date and interest.",
+        content:
+          "Search and filter the complete Scrib Foundation archive by section, date and interest.",
       },
       { property: "og:url", content: "/explore" },
       { property: "og:type", content: "website" },
@@ -56,8 +59,16 @@ function ExplorePage() {
   const [term, setTerm] = useState(search.q ?? "");
   const [visible, setVisible] = useState(PAGE_SIZE);
 
-  const { data: posts, isLoading, isError } = useQuery(publishedPostsQuery());
-  const { data: categories } = useQuery(categoriesQuery());
+  const initial = Route.useLoaderData();
+  const {
+    data: posts,
+    isLoading,
+    isError,
+  } = useQuery({ ...publishedPostsQuery(), initialData: initial.posts as never });
+  const { data: categories } = useQuery({
+    ...categoriesQuery(),
+    initialData: initial.categories as never,
+  });
 
   const activeCategory = search.category ?? "all";
   const sort = search.sort ?? "newest";

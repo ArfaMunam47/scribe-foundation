@@ -49,7 +49,8 @@ function AdminPosts() {
         .from("posts")
         .update({
           status: next,
-          published_at: next === "published" ? (post.published_at ?? new Date().toISOString()) : null,
+          published_at:
+            next === "published" ? (post.published_at ?? new Date().toISOString()) : null,
         })
         .eq("id", post.id);
       if (error) throw new Error(error.message);

@@ -60,8 +60,8 @@ export function Newsletter({ variant = "light" }: { variant?: "light" | "dark" }
           <p
             className={`mt-4 max-w-md text-sm leading-relaxed ${dark ? "text-ink-foreground/70" : "text-muted-foreground"}`}
           >
-            Join 24,000 readers who receive our long-form reporting before it appears on the site. No
-            trackers, no sponsored placements, no noise.
+            Join 24,000 readers who receive our long-form reporting before it appears on the site.
+            No trackers, no sponsored placements, no noise.
           </p>
         </div>
 
