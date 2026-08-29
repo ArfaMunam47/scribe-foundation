@@ -258,7 +258,8 @@ function ShareRail({ post }: { post: Post }) {
     );
   }
 
-  const shareUrl = typeof window === "undefined" ? "" : window.location.href;
+  const [shareUrl, setShareUrl] = useState("");
+  useEffect(() => setShareUrl(window.location.href), []);
 
   return (
     <div className="flex gap-2 lg:sticky lg:top-28 lg:h-fit lg:flex-col">
