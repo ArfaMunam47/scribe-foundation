@@ -6,6 +6,7 @@ import { z } from "zod";
 
 import { ArticleCard, ArticleCardSkeleton } from "@/components/site/ArticleCard";
 import { CoverImage } from "@/components/site/CoverImage";
+import { fetchListings } from "@/lib/listings.functions";
 import { Container, EmptyState, SiteShell } from "@/components/site/SiteShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,6 +30,7 @@ const searchSchema = z.object({
 
 export const Route = createFileRoute("/explore")({
   validateSearch: searchSchema,
+  loader: () => fetchListings(),
   head: () => ({
     meta: [
       { title: "Explore every article — Scrib Foundation" },
@@ -56,8 +58,16 @@ function ExplorePage() {
   const [term, setTerm] = useState(search.q ?? "");
   const [visible, setVisible] = useState(PAGE_SIZE);
 
-  const { data: posts, isLoading, isError } = useQuery(publishedPostsQuery());
-  const { data: categories } = useQuery(categoriesQuery());
+  const initial = Route.useLoaderData();
+  const {
+    data: posts,
+    isLoading,
+    isError,
+  } = useQuery({ ...publishedPostsQuery(), initialData: initial.posts as never });
+  const { data: categories } = useQuery({
+    ...categoriesQuery(),
+    initialData: initial.categories as never,
+  });
 
   const activeCategory = search.category ?? "all";
   const sort = search.sort ?? "newest";

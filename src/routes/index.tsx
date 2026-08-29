@@ -13,6 +13,7 @@ import {
 } from "@/components/site/SiteShell";
 import { Button } from "@/components/ui/button";
 import { authorsQuery, categoriesQuery, publishedPostsQuery, type Post } from "@/lib/api";
+import { fetchListings } from "@/lib/listings.functions";
 import { formatCount, formatDate, initials } from "@/lib/format";
 
 const HOME_TITLE = "Scrib Foundation — writing on community, education & social impact";
@@ -20,6 +21,7 @@ const HOME_DESCRIPTION =
   "Practical, independent writing on community programmes, education access, public awareness work and how such work is funded, run and sustained.";
 
 export const Route = createFileRoute("/")({
+  loader: () => fetchListings(),
   head: () => ({
     meta: [
       { title: HOME_TITLE },
@@ -43,9 +45,17 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  const { data: posts, isLoading, isError } = useQuery(publishedPostsQuery());
-  const { data: categories } = useQuery(categoriesQuery());
-  const { data: authors } = useQuery(authorsQuery());
+  const initial = Route.useLoaderData();
+  const {
+    data: posts,
+    isLoading,
+    isError,
+  } = useQuery({ ...publishedPostsQuery(), initialData: initial.posts as Post[] });
+  const { data: categories } = useQuery({
+    ...categoriesQuery(),
+    initialData: initial.categories as never,
+  });
+  const { data: authors } = useQuery({ ...authorsQuery(), initialData: initial.authors as never });
 
   const featured = posts?.find((post) => post.featured) ?? posts?.[0];
   const secondary = posts?.filter((post) => post.id !== featured?.id).slice(0, 2) ?? [];
