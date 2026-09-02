@@ -163,6 +163,4 @@ This project is private and proprietary. All rights reserved.
 
 For questions or support, please reach out through the contact form on the live site or open an issue in this repository.
 
----
 
-Built with ❤️ using modern web technologies
