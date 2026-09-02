@@ -146,11 +146,6 @@ The platform uses Supabase with PostgreSQL, featuring:
 - Row Level Security (RLS) policies for data protection
 - Foreign key relationships for data integrity
 
-## Development
-
-This project was built with [Lovable](https://lovable.dev), an AI-powered development platform.
-
-**Live Demo**: [https://scribe-foundation.lovable.app](https://scribe-foundation.lovable.app)
 
 ### Contributing
 
